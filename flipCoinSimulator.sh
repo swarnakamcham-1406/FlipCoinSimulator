@@ -1,26 +1,44 @@
 #! /bin/bash -x
 echo "welcome to the flipCoinSimulator"
+heads=0
+tails=0
+ties=0
 
-echo "number of times flipping a coin"
-
-read n
-flip=1
-flipCoin=$((RANDOM%2))
-h=0
-t=0
-while [ $flip -le $n ]
+while [[ $heads -le 21 && $tails -le 21 && $ties -le $ties ]]
 do
-flip=$(($flip + 1))
 
-if [ $flipCoin -eq 0 ]
-then
-    echo "HEAD"
-     h=$(($h+1))
-echo "$h"
-else
-    echo "TAIL"
-    t=$(($t+1))
-echo "$t"
+  a=$(( RANDOM%2 ))
+
+    if [ $a -eq 1 ]
+     then
+         heads=$((heads+1))
+
+          elif [ $a -eq 0 ]
+          then
+          tails=$((tails+1))
+
+           else
+
+            ties=$(($ties+1))
 fi
+
 done
+
+    if [ "$heads" -eq 21 ]
+     then
+         echo "heads won by $(($heads-$tails)) "
+
+      elif [ "$tails" -eq 21 ]
+      then
+
+       echo "tails won by $(($tails-$heads))"
+
+    else
+      echo "ties are $(($ties-$heads-$tails))"
+fi
+echo "final head value is $heads"
+echo "final tail value is $tails"
+echo "final ties value is $ties"
+
+
 
