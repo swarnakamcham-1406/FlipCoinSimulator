@@ -24,18 +24,32 @@ fi
 
 done
 
-    if [ "$heads" -eq 21 ]
-     then
-         echo "heads won by $(($heads-$tails)) "
+    if [[ "$heads" -eq 21 && "$tails" -eq 21 ]]
+then
 
-      elif [ "$tails" -eq 21 ]
-      then
+   if [ $heads -eq 21 ]
+   then
 
+       while [ "$(($heads-$tails))" -gt -2 ]
+        do
+
+              tails=$(($tails-1))
+        done
+          else
+             while [ "$(($tails-$heads))" -gt 2 ]
+              do
+                  heads=$(($heads-1))
+              done
+fi
+
+elif [ "$heads" -eq 21 ]
+then
+      echo "heads won by $(($heads-$tails)) "
+   else
        echo "tails won by $(($tails-$heads))"
 
-    else
-      echo "ties are $(($ties-$heads-$tails))"
 fi
+
 echo "final head value is $heads"
 echo "final tail value is $tails"
 echo "final ties value is $ties"
